@@ -29,27 +29,26 @@ BASE & DARK THEME STYLES
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory; /* Enable snap scrolling */
-    height: 100%; /* FIX: Ensure html takes full height */
-    margin: 0; /* FIX: Remove default margin */
-    padding: 0; /* FIX: Remove default padding */
+    scroll-snap-type: y mandatory;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
     transition: background-color 0.5s ease, color 0.5s ease;
-    height: 100%; /* FIX: Ensure body takes full viewport height */
-    margin: 0; /* FIX: Remove default margin */
-    padding: 0; /* FIX: Remove default padding */
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 main {
     padding-bottom: 120px;
 }
 
-/* All sections will now stack vertically */
 main > section[id] {
     padding: 4rem 1rem;
     display: flex;
@@ -57,7 +56,7 @@ main > section[id] {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    scroll-snap-align: start; /* Snap to the start of each section */
+    scroll-snap-align: start;
 }
 
 .container {
@@ -175,7 +174,6 @@ LIGHT THEME STYLES (White Aesthetics)
     background-clip: text;
 }
 
-/* Professional highlight for info circle in light mode */
 [data-theme="light"] .info-circle {
     background: linear-gradient(135deg, #f9fafb, #f3f4f6);
     border: 1px solid #d1d5db;
@@ -190,7 +188,7 @@ LIGHT THEME STYLES (White Aesthetics)
 }
 
 /* ==============================================
-[UPDATED] VIDEO BACKGROUNDS FOR INDIVIDUAL SECTIONS
+VIDEO BACKGROUNDS FOR INDIVIDUAL SECTIONS
 ============================================== */
 .section-video-background {
     position: absolute;
@@ -216,105 +214,26 @@ LIGHT THEME STYLES (White Aesthetics)
     animation: fadeInBackground 2s 0.5s ease-out forwards;
 }
 
-/* Video for hero section */
-#hero .section-video-background video {
-    display: none;
-}
-
-[data-theme="dark"] #hero .section-video-background #background-video-dark {
-    display: block;
-}
-
-[data-theme="light"] #hero .section-video-background #background-video-light {
-    display: block;
-}
-
-/* Video for experience section */
-#experience .section-video-background video {
-    display: none;
-}
-
-[data-theme="dark"] #experience .section-video-background #experience-video-dark {
-    display: block;
-}
-
-[data-theme="light"] #experience .section-video-background #experience-video-light {
-    display: block;
-}
-
-/* Video for skills section */
-#skills .section-video-background video {
-    display: none;
-}
-
-[data-theme="dark"] #skills .section-video-background #skills-video-dark {
-    display: block;
-}
-
-[data-theme="light"] #skills .section-video-background #skills-video-light {
-    display: block;
-}
-
-/* Video for projects section */
-#projects .section-video-background video {
-    display: none;
-}
-
-[data-theme="dark"] #projects .section-video-background #projects-video-dark {
-    display: block;
-}
-
-[data-theme="light"] #projects .section-video-background #projects-video-light {
-    display: block;
-}
-
-/* Video for education section */
-#education .section-video-background video {
-    display: none;
-}
-
-[data-theme="dark"] #education .section-video-background #education-video-dark {
-    display: block;
-}
-
-[data-theme="light"] #education .section-video-background #education-video-light {
-    display: block;
-}
-
-/* Video for certifications section */
-#certifications .section-video-background video {
-    display: none;
-}
-
-[data-theme="dark"] #certifications .section-video-background #certifications-video-dark {
-    display: block;
-}
-
-[data-theme="light"] #certifications .section-video-background #certifications-video-light {
-    display: block;
-}
-
-/* Video for contact section */
-#contact .section-video-background video {
-    display: none;
-}
-
-[data-theme="dark"] #contact .section-video-background #contact-video-dark {
-    display: block;
-}
-
-[data-theme="light"] #contact .section-video-background #contact-video-light {
-    display: block;
-}
+/* Hide videos by default and show based on theme */
+.section-video-background video { display: none; }
+[data-theme="dark"] #hero #background-video-dark { display: block; }
+[data-theme="light"] #hero #background-video-light { display: block; }
+[data-theme="dark"] #experience #experience-video-dark { display: block; }
+[data-theme="light"] #experience #experience-video-light { display: block; }
+[data-theme="dark"] #skills #skills-video-dark { display: block; }
+[data-theme="light"] #skills #skills-video-light { display: block; }
+[data-theme="dark"] #projects #projects-video-dark { display: block; }
+[data-theme="light"] #projects #projects-video-light { display: block; }
+[data-theme="dark"] #education #education-video-dark { display: block; }
+[data-theme="light"] #education #education-video-light { display: block; }
+[data-theme="dark"] #certifications #certifications-video-dark { display: block; }
+[data-theme="light"] #certifications #certifications-video-light { display: block; }
+[data-theme="dark"] #contact #contact-video-dark { display: block; }
+[data-theme="light"] #contact #contact-video-light { display: block; }
 
 @keyframes fadeInBackground {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* ==============================================
@@ -352,15 +271,8 @@ main {
     justify-content: center;
 }
 
-.desktop-nav-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mobile-nav-wrapper {
-    display: none;
-}
+.desktop-nav-wrapper { display: flex; }
+.mobile-nav-wrapper { display: none; }
 
 .nav-menu-half {
     display: flex;
@@ -406,35 +318,9 @@ main {
     color: #00bfff;
 }
 
-.toast-message {
-    position: fixed;
-    bottom: 6rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #1e2a44;
-    color: #f8fafc;
-    padding: 1rem 1.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 40;
-    opacity: 0;
-    transition: all 0.5s ease;
-}
-
-.toast-message.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-[data-theme="light"] .toast-message {
-    background-color: #ffffff;
-    color: #1e2a44;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 .modal-overlay {
     position: fixed;
-    inset: 0; /* Ensures it covers the entire viewport */
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
@@ -528,7 +414,6 @@ main {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* --- Mobile Navigation Menu Overlay --- */
 .mobile-nav-overlay {
     position: fixed;
     top: 0;
@@ -566,21 +451,10 @@ main {
     transform: rotate(90deg);
 }
 
-[data-theme="dark"] .close-menu-btn {
-    color: #a7c0e0;
-}
-
-[data-theme="dark"] .close-menu-btn:hover {
-    color: #00bfff;
-}
-
-[data-theme="light"] .close-menu-btn {
-    color: #4b5563;
-}
-
-[data-theme="light"] .close-menu-btn:hover {
-    color: #3b82f6;
-}
+[data-theme="dark"] .close-menu-btn { color: #a7c0e0; }
+[data-theme="dark"] .close-menu-btn:hover { color: #00bfff; }
+[data-theme="light"] .close-menu-btn { color: #4b5563; }
+[data-theme="light"] .close-menu-btn:hover { color: #3b82f6; }
 
 .mobile-nav-links {
     display: flex;
@@ -599,10 +473,7 @@ main {
     padding: 0.5rem;
 }
 
-[data-theme="dark"] .mobile-nav-link {
-    color: #a7c0e0;
-}
-
+[data-theme="dark"] .mobile-nav-link { color: #a7c0e0; }
 [data-theme="dark"] .mobile-nav-link:hover,
 [data-theme="dark"] .mobile-nav-link:focus {
     color: #00bfff;
@@ -610,16 +481,12 @@ main {
     transform: scale(1.1);
 }
 
-[data-theme="light"] .mobile-nav-link {
-    color: #4b5563;
-}
-
+[data-theme="light"] .mobile-nav-link { color: #4b5563; }
 [data-theme="light"] .mobile-nav-link:hover,
 [data-theme="light"] .mobile-nav-link:focus {
     color: #3b82f6;
     transform: scale(1.1);
 }
-
 
 /* Preloader and Intro Animation */
 #preloader {
@@ -654,7 +521,6 @@ main {
     }
 }
 
-/* [MODIFIED] Hero Section */
 #hero,
 #experience,
 #skills,
@@ -677,7 +543,6 @@ main {
     z-index: 1;
 }
 
-/* [MODIFIED] Info Circle styles */
 .info-circle {
     position: relative;
     transform: none;
@@ -731,7 +596,6 @@ main {
     }
 }
 
-/* [NEW] Profile Image Container for gradient mask */
 .profile-image-container {
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
@@ -741,7 +605,6 @@ main {
     display: block;
 }
 
-/* [MODIFIED] Name Gradient with bottom-up direction */
 .name-gradient {
     text-align: right;
     background-clip: text;
@@ -763,7 +626,6 @@ main {
     background-clip: text;
 }
 
-/* Section Title Animation */
 #section-title {
     position: fixed;
     top: 50%;
@@ -779,23 +641,11 @@ main {
 }
 
 @keyframes movie-title {
-    0% {
-        transform: translate(-50%, -50%) scale(1.5);
-        opacity: 0;
-    }
-
-    50% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translate(-50%, -50%) scale(0.8);
-        opacity: 0;
-    }
+    0% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
 }
 
-/* "Let's Talk" Button Group */
 .cta-group {
     margin-top: 1.5rem;
     display: flex;
@@ -824,17 +674,9 @@ main {
     overflow: hidden;
 }
 
-.cta-button {
-    padding: 0.6rem 1.5rem;
-}
-
-.icon-button {
-    padding: 0.6rem;
-}
-
-.play-button {
-    padding: 0.8rem;
-}
+.cta-button { padding: 0.6rem 1.5rem; }
+.icon-button { padding: 0.6rem; }
+.play-button { padding: 0.8rem; }
 
 [data-theme="dark"] .cta-button,
 [data-theme="dark"] .icon-button {
@@ -850,7 +692,6 @@ main {
     box-shadow: 0 0 20px rgba(0, 191, 255, 0.7);
 }
 
-/* [MODIFICATION] New professional button styles for light mode */
 [data-theme="light"] .cta-button,
 [data-theme="light"] .icon-button {
     background-color: #ffffff;
@@ -868,30 +709,19 @@ main {
     box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2), 0 4px 6px -2px rgba(59, 130, 246, 0.1);
 }
 
-/* Experience & Skills Card */
 .glass-card {
     padding: 2rem;
     border-radius: 1rem;
     max-width: 700px;
     margin: 0 auto;
     z-index: 0;
-    /* Changed to 0 so it's above the video, but still glass */
 }
 
-/* [UPDATED] Experience Layout */
 .experience-item {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
-}
-
-@media (max-width: 767px) {
-    .experience-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
 }
 
 .experience-content {
@@ -913,7 +743,6 @@ main {
     border-radius: 15px;
 }
 
-/* [MODIFIED] Section Title Spacing */
 .animated-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.25rem;
@@ -930,9 +759,7 @@ main {
     text-align: center;
 }
 
-#hero .animated-title {
-    margin-bottom: 0;
-}
+#hero .animated-title { margin-bottom: 0; }
 
 .experience-content p.font-bold,
 .education-content p.font-bold {
@@ -953,20 +780,29 @@ main {
 .education-content ul li strong {
     font-weight: 700;
 }
-
-/* [MODIFIED] 3D Projects Slider Section - Smaller Size */
 #projects {
-    position: relative;
-}
-
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 600px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: -2rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.projects-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    justify-items: center;
+    align-items: center;
+}
+
+.projects-3d-carousel-wrapper {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
 .carousel {
@@ -978,13 +814,8 @@ main {
 }
 
 @keyframes rotate-carousel {
-    from {
-        transform: rotateY(0deg);
-    }
-
-    to {
-        transform: rotateY(360deg);
-    }
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
 }
 
 .slider-container:hover .carousel {
@@ -1028,13 +859,8 @@ main {
 }
 
 @keyframes spin-border {
-    from {
-        --angle: 0deg;
-    }
-
-    to {
-        --angle: 360deg;
-    }
+    from { --angle: 0deg; }
+    to { --angle: 360deg; }
 }
 
 .project-image {
@@ -1112,77 +938,55 @@ main {
     transition: color 0.3s ease;
 }
 
-[data-theme="dark"] .project-link {
-    color: #a7c0e0;
-}
+[data-theme="dark"] .project-link { color: #a7c0e0; }
+[data-theme="dark"] .project-link:hover { color: #00bfff; }
+[data-theme="light"] .project-link { color: #4b5563; }
+[data-theme="light"] .project-link:hover { color: #3b82f6; }
 
-[data-theme="dark"] .project-link:hover {
-    color: #00bfff;
-}
-
-[data-theme="light"] .project-link {
-    color: #4b5563;
-}
-
-[data-theme="light"] .project-link:hover {
-    color: #3b82f6;
-}
-
-/* ** [MODIFIED] Skills Section CSS for Static List View */
 #skills {
     position: relative;
     min-height: 100vh;
-    padding-top: 8rem; /* Added padding */
-    padding-bottom: 8rem; /* Added padding */
-    /* No change to display properties here, as main > section[id] already handles them */
+    padding-top: 8rem;
+    padding-bottom: 8rem;
 }
 
 #skills .container {
-    display: flex; /* Make the container a flex container */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center items horizontally within the container */
-    justify-content: center; /* Center items vertically within the container */
-    height: 100%; /* Make the container fill the height of the section */
-    width: 100%; /* Ensure it takes full width of its parent */
-    max-width: 1280px; /* Retain global container max-width */
-    margin: 0 auto; /* Retain global container horizontal centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
-/* Orbital elements - hidden by default */
-.orbit-container {
-    display: none; /* Hide the entire orbital container */
-}
-
-.sun, .orbit, .skill-planet-container, .skill-planet {
-    display: none; /* Ensure all orbital elements are hidden */
-}
-
-/* Display and style the skills grid */
+.orbit-container { display: none; }
 .skills-grid {
-    display: grid; /* Always display grid */
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjusted minmax for better spacing */
-    gap: 2rem; /* Increased gap for more space */
-    max-width: 700px; /* Max width for the grid */
-    justify-items: center; /* Center items within their grid cells */
-    align-items: center; /* Center items vertically within their grid cells */
-    margin-top: auto; /* Pushes the grid down if space available */
-    margin-bottom: auto; /* Pushes the grid up if space available */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 2rem;
+    max-width: 700px;
+    justify-items: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .skills-grid .skill-planet {
-    position: static; /* Remove absolute positioning */
-    width: 100px; /* Larger size for list items */
-    height: 100px; /* Larger size for list items */
+    position: static;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     display: flex;
-    flex-direction: column; /* Stack image and text if added */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 165, 0, 0.2);
     border: 1px solid rgba(255, 165, 0, 0.5);
     transition: all 0.3s ease;
-    transform: none; /* Ensure no transformations */
-    box-shadow: 0 0 10px rgba(0, 191, 255, 0.2); /* Add a subtle shadow */
+    transform: none;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
 }
 
 [data-theme="light"] .skills-grid .skill-planet {
@@ -1192,15 +996,15 @@ main {
 }
 
 .skills-grid .skill-planet:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5); /* Enhanced shadow on hover */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
 }
 
 .skills-grid .skill-planet img {
     max-width: 70%;
     max-height: 70%;
     object-fit: contain;
-    margin-bottom: 0.5rem; /* Space between image and potential text */
+    margin-bottom: 0.5rem;
 }
 
 /* Contact Form Styles */
@@ -1256,21 +1060,8 @@ main {
     padding: 0 0.5rem;
 }
 
-[data-theme="dark"] {
-    --form-label-bg: #0d1224;
-}
-
-[data-theme="light"] {
-    --form-label-bg: #e4e9f3;
-}
-
-[data-theme="dark"] .form-input:focus + .form-label {
-    color: #00bfff;
-}
-
-[data-theme="light"] .form-input:focus + .form-label {
-    color: #3b82f6;
-}
+[data-theme="dark"] { --form-label-bg: #0d1224; }
+[data-theme="light"] { --form-label-bg: #f9fafb; }
 
 .send-button {
     width: 100%;
@@ -1298,30 +1089,22 @@ main {
     color: #ffffff;
 }
 
-.send-button .button-text,
-.send-button .rocket-icon {
+.send-button .button-text {
     transition: all 0.4s ease;
 }
 
-.send-button .rocket-icon {
-    position: absolute;
+.send-button.sending .button-text,
+.send-button.sent .button-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+.send-button.sending .rocket-icon,
+.send-button.sent .rocket-icon {
     opacity: 0;
     transform: translateY(100%);
 }
 
-.send-button.sending .button-text {
-    transform: translateY(0); /* Keep text centered */
-    opacity: 1;
-}
-.send-button.sending .rocket-icon {
-    opacity: 0; /* Hide rocket during sending */
-    transform: translateY(100%); /* Keep it off-screen */
-}
-
-
-.send-button.sent {
-    cursor: default;
-}
+.send-button.sent { cursor: default; }
 
 [data-theme="dark"] .send-button.sent {
     background-color: #22c55e;
@@ -1330,26 +1113,6 @@ main {
 
 [data-theme="light"] .send-button.sent {
     background-color: #22c55e;
-}
-
-.send-button.sent .button-text {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-@keyframes launch {
-    0% {
-        transform: translateY(0) rotate(-45deg);
-    }
-
-    20% {
-        transform: translateY(-10px) rotate(-45deg);
-    }
-
-    100% {
-        transform: translateY(-250px) rotate(-45deg);
-        opacity: 0;
-    }
 }
 
 /* Custom Cursor */
@@ -1361,13 +1124,12 @@ main {
     pointer-events: none;
     z-index: 99999;
     transform: translate(-50%, -50%);
-    display: none; /* Hidden by default */
+    display: none;
     transition: transform 0.2s ease-out, background-color 0.2s ease, width 0.2s ease, height 0.2s ease;
 }
 
-/* Only display in dark theme */
 [data-theme="dark"] #custom-cursor {
-    display: block; /* Show in dark mode */
+    display: block;
     background-color: rgba(0, 191, 255, 0.5);
     border: 2px solid #00bfff;
     box-shadow: 0 0 15px #00bfff, 0 0 25px #00bfff;
@@ -1379,14 +1141,10 @@ main {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Hide on touch devices (no hover capability) */
 @media (hover: none) {
-    #custom-cursor {
-        display: none !important; /* Ensure it's hidden on touch devices */
-    }
+    #custom-cursor { display: none !important; }
 }
 
-/* Screen Reader Only */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -1401,125 +1159,55 @@ main {
 /* ==============================================
 MEDIA QUERIES FOR RESPONSIVENESS
 ============================================== */
-/* Ensure skills grid is always visible and orbital is always hidden */
-@media (min-width: 0px) { /* Applies to all screen sizes */
-    .skills-grid {
-        display: grid;
-    }
-    .orbit-container {
-        display: none;
-    }
-}
-
-@media (min-width: 768px) {
-    /* Adjustments for medium screens and up */
-    .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Slightly larger items */
-        max-width: 800px; /* Wider grid */
-    }
-    .skills-grid .skill-planet {
-        width: 120px;
-        height: 120px;
-    }
-}
-
-@media (min-width: 1024px) {
-    /* Adjustments for large screens and up */
-    .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Even larger items */
-        max-width: 1000px; /* Even wider grid */
-    }
-    .skills-grid .skill-planet {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-/* Base mobile styles (max-width: 992px was used before, now using general mobile adjustments) */
 @media (max-width: 992px) {
-    .desktop-nav-wrapper {
-        display: none;
+    .name-gradient { font-size: 3rem; line-height: 1; text-align: center; }
+    .cta-group { margin-top: 1rem; flex-direction: column; align-items: center; gap: 0.5rem; }
+    .cta-row { flex-direction: column; gap: 0.5rem; }
+    
+    /* Project centering for smaller screens */
+    .projects-3d-carousel-wrapper { display: none; }
+    .projects-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        max-width: 1200px;
+        justify-items: center;
+        margin: 0 auto;
     }
+    .project-card { position: static; transform: none !important; }
+    .project-card:hover { transform: translateY(-5px); }
+    .project-card::before { opacity: 0; }
+    .slider-container { height: auto; }
 
-    .mobile-nav-wrapper {
+    .desktop-nav-wrapper { display: none; }
+    .mobile-nav-wrapper { display: flex; align-items: center; gap: 0.5rem; }
+    .nav-link { font-size: 0.7rem; padding: 0.5rem; }
+    .nav-menu-half { gap: 0.25rem; }
+    .theme-toggle-button { padding: 0.6rem; margin: 0 0.25rem; }
+
+    .modal-title { font-size: 1rem; }
+    .crizal-world-text { font-size: 1.5rem; }
+    .info-circle { flex-direction: column; gap: 0.5rem; padding: 0.75rem; }
+    .info-circle p:not(:last-child) { border-right: none; padding-right: 0; }
+    #section-title { font-size: 3rem; }
+    .project-image { height: 110px; }
+    .project-title { font-size: 1rem; }
+    .project-description { font-size: 0.75rem; }
+    .project-link { font-size: 0.75rem; }
+    .experience-item { flex-direction: column; align-items: center; text-align: center; }
+}
+
+@media (min-width: 993px) {
+    /* Project centering for larger screens */
+    .projects-3d-carousel-wrapper {
         display: flex;
+        justify-content: center;
         align-items: center;
-        gap: 0.5rem;
+        width: 100%;
+        max-width: 1200px;
     }
-
-    .nav-link {
-        font-size: 0.7rem;
-        padding: 0.5rem;
-    }
-
-    .nav-menu-half {
-        gap: 0.25rem;
-    }
-
-    .theme-toggle-button {
-        padding: 0.6rem;
-        margin: 0 0.25rem;
-    }
-
-    .modal-title {
-        font-size: 1rem;
-    }
-
-    .crizal-world-text {
-        font-size: 1.5rem;
-    }
-
-    .info-circle {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.75rem;
-    }
-
-    .info-circle p:not(:last-child) {
-        border-right: none;
-        padding-right: 0;
-    }
-
-    #section-title {
-        font-size: 3rem;
-    }
-
-    .project-card {
-        width: 220px;
-        height: 340px;
-    }
-
-    .carousel {
-        width: 220px;
-        height: 340px;
-    }
-
-    .slider-container {
-        perspective: 800px;
-        height: 400px;
-    }
-
-    .project-image {
-        height: 110px;
-    }
-
-    .project-title {
-        font-size: 1rem;
-    }
-
-    .project-description {
-        font-size: 0.75rem;
-    }
-
-    .project-link {
-        font-size: 0.75rem;
-    }
-
-    .experience-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+    .projects-grid-wrapper { display: none; }
 }
 </style>
 </head>
@@ -1534,11 +1222,9 @@ MEDIA QUERIES FOR RESPONSIVENESS
             <div class="section-video-background">
                 <video autoplay loop muted playsinline id="background-video-dark">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754408855/Untitled_design_2_ksxq62.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <video autoplay loop muted playsinline id="background-video-light">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754314464/light_axshha.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
             
@@ -1594,11 +1280,9 @@ MEDIA QUERIES FOR RESPONSIVENESS
             <div class="section-video-background">
                 <video autoplay loop muted playsinline id="experience-video-dark">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754414241/Untitled_design_5_fbwmrn.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <video autoplay loop muted playsinline id="experience-video-light">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754414411/Untitled_design_6_bamf9g.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
             
@@ -1608,7 +1292,7 @@ MEDIA QUERIES FOR RESPONSIVENESS
                     <h1 class="animated-title" data-aos="fade-up">Work Experience</h1>
                 </div>
                 <div class="glass-card" data-aos="zoom-in-up" data-aos-delay="200">
-                    <div class="experience-item">
+                    <div class="experience-item mb-8">
                         <div class="experience-content text-left">
                             <p class="font-bold">Technical Hub, Surampalem, Andhra Pradesh</p>
                             <p class="text-sm opacity-80 mb-2">Jun 2024 – Jul 2024</p>
@@ -1630,13 +1314,54 @@ MEDIA QUERIES FOR RESPONSIVENESS
                                     <i data-feather="cpu" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
                                     <span><strong>Technologies:</strong> Python, JavaScript, AES Encryption, Steganography, Git, GitHub</span>
                                 </li>
+                                <li>
+                                    <i data-feather="play" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
+                                    <span><a href="https://github.com/chaitanyaponnada/Steganography" target="_blank" class="text-blue-400 hover:underline">Project Link</a></span>
+                                </li>
                             </ul>
                         </div>
                         <div class="company-logo-container">
                             <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754409052/images_ttdiey.png" alt="Technical Hub Logo" class="company-logo">
                         </div>
                     </div>
-                </div>
+                    <hr class="border-white/10 dark:border-black/10 my-8">
+                    <div class="experience-item">
+                            <div class="experience-content text-left">
+                                <p class="font-bold">SmartBridge Educational Services Pvt. Ltd. (Virtual)</p>
+                                <p class="text-sm opacity-80 mb-2">Jun 2025 – Jul 2025</p>
+                                <p class="font-bold italic">Full Stack Development (MERN) Intern</p>
+                                <ul class="mt-4 space-y-4">
+                                    <li>
+                                        <i data-feather="file-text" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
+                                        <span>Completed a state-certified short-term internship under APSCHE and JNTUK, focusing on MERN stack application development.</span>
+                                    </li>
+                                    <li>
+                                        <i data-feather="shopping-cart" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
+                                        <span>Built and deployed a Grocery Web App with product catalog, secure checkout, real-time order tracking and admin dashboard reducing manual shopping time by 70%.</span>
+                                    </li>
+                                    <li>
+                                        <i data-feather="layers" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
+                                        <span>Integrated React.js, Node.js, Express.js, and MongoDB to deliver a fully functional e-commerce solution with 95% mobile compatibility.</span>
+                                    </li>
+                                    <li>
+                                        <i data-feather="code" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
+                                        <span>Collaborated on backend API development, database design, and frontend UI optimization to improve accessibility and user engagement.</span>
+                                    </li>
+                                    <li>
+                                        <i data-feather="github" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
+                                        <span><strong>Technologies:</strong> React.js, Node.js, Express.js, MongoDB, Axios, REST API, Bootstrap, Git, GitHub</span>
+                                    </li>
+                                    <li>
+                                        <i data-feather="play" class="inline-block h-5 w-5 mr-2 flex-shrink-0 mt-1"></i>
+                                        <span><a href="https://github.com/chaitanyaponnada/ShopSmart-Your-Digital-Grocery-Store-Experience" target="_blank" class="text-blue-400 hover:underline">Project Link</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="company-logo-container">
+                                <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754896105/smartbridge_educational_services_pvt_ltd_logo_hv5q4l.jpg" alt="SmartBridge Logo" class="company-logo">
+                            </div>
+                        </div>
+                    </div>
             </div>
         </section>
 
@@ -1644,35 +1369,15 @@ MEDIA QUERIES FOR RESPONSIVENESS
             <div class="section-video-background">
                 <video autoplay loop muted playsinline id="skills-video-dark">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754511141/Untitled_design_11_yi28ju.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <video autoplay loop muted playsinline id="skills-video-light">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754415160/skills-bg-light_efrhjn.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
             <h2 id="skills-title" class="sr-only">Skills</h2>
             <div class="container">
                 <div class="text-center">
                     <h2 class="animated-title" data-aos="fade-up">Skills</h2>
-                </div>
-                <div class="orbit-container hidden" data-aos="zoom-in">
-                    <div class="sun">Skills</div>
-                    <div class="orbit orbit-outer">
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547241/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail_slcr2x.png" alt="React.js Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/express-js_vincg6.png" alt="Express Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547244/Node.js_hshgqh.png" alt="Node.js Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547246/mongoDB_myozal.png" alt="MongoDB Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547245/logo-mysql-mysql-logo-png-images-are-download-crazypng-21_b8covf.png" alt="MySQL Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547245/git_yfx4yq.png" alt="Git Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/bootstrap-original-wordmark-8x_gumfrb.png" alt="Bootstrap Logo"></div> <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547241/js_shtbsf.webp" alt="JavaScript Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/HTML5_logo_and_wordmark.svg_kkwgxl.png" alt="HTML Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547241/css_dm1krx.png" alt="CSS Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/hd-python-logo-symbol-transparent-png-735811696257415dbkifcuokn_dn4qjt.png" alt="Python Logo"></div>
-                        <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547243/java_jppc3s.webp" alt="JAVA Logo"></div>
-                    </div>
-                    <div class="orbit orbit-middle hidden"></div>
-                    <div class="orbit orbit-inner hidden"></div>
                 </div>
                 <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547241/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail_slcr2x.png" alt="React.js Logo"></div>
@@ -1690,159 +1395,277 @@ MEDIA QUERIES FOR RESPONSIVENESS
                 </div>
             </div>
         </section>
-            
+        
         <section id="projects" aria-labelledby="projects-title">
-            <div class="section-video-background">
-                <video autoplay loop muted playsinline id="projects-video-dark">
-                    <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754545876/Untitled_design_16_uebmpo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <video autoplay loop muted playsinline id="projects-video-light">
-                    <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754475869/Untitled_design_10_thxut3.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <h2 id="projects-title" class="sr-only">Projects</h2>
-            <div class="container w-full">
-                <div class="text-center">
-                    <h2 class="animated-title" data-aos="fade-up">Projects</h2>
-                </div>
-                <div class="slider-container" data-aos="fade-in" data-aos-delay="200">
-                    <div class="carousel">
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="https://placehold.co/400x220/020412/00bfff?text=Project+Alpha"
-                                            alt="Project Alpha Screenshot"
-                                            onerror="this.onerror=null;this.src='https://placehold.co/400x220/020412/FFFFFF?text=Image+Not+Found';">
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Steganography Tool</h3>
-                                <p class="project-description">A multi-format steganography tool for embedding secret data within images, audio, and video files securely.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Python</span>
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">AES</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                    <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
-                                </div>
-                            </div>
+    <div class="section-video-background">
+        <video autoplay loop muted playsinline id="projects-video-dark">
+            <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754545876/Untitled_design_16_uebmpo.mp4" type="video/mp4">
+        </video>
+        <video autoplay loop muted playsinline id="projects-video-light">
+            <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754475869/Untitled_design_10_thxut3.mp4" type="video/mp4">
+        </video>
+    </div>
+    <h2 id="projects-title" class="sr-only">Projects</h2>
+    <div class="container w-full flex flex-col items-center">
+        <div class="text-center">
+            <h2 class="animated-title" data-aos="fade-up">Projects</h2>
+        </div>
+        <div class="projects-3d-carousel-wrapper" data-aos="fade-in" data-aos-delay="200">
+            <div class="slider-container">
+                <div class="carousel">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/3_hfscji.png"
+                                alt="Todo Application Screenshot">
                         </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="https://placehold.co/400x220/020412/ff8c00?text=Project+Beta"
-                                            alt="Project Beta Screenshot"
-                                            onerror="this.onerror=null;this.src='https://placehold.co/400x220/020412/FFFFFF?text=Image+Not+Found';">
+                        <div class="project-content">
+                            <h3 class="project-title">Todos Application</h3>
+                            <p class="project-description">A responsive to-do list management application with CRUD functionality, built to increase user productivity.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Bootstrap</span>
                             </div>
-                            <div class="project-content">
-                                <h3 class="project-title">E-Commerce Platform</h3>
-                                <p class="project-description">A full-featured online store with product listings, a shopping cart, and a secure checkout process.</p>
-                                <div class="project-tags">
-                                    <span class="tag">React</span>
-                                    <span class="tag">Node.js</span>
-                                    <span class="tag">MongoDB</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                    <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="https://placehold.co/400x220/020412/ffd700?text=Project+Gamma"
-                                            alt="Project Gamma Screenshot"
-                                            onerror="this.onerror=null;this.src='https://placehold.co/400x220/020412/FFFFFF?text=Image+Not+Found';">
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Portfolio Website</h3>
-                                <p class="project-description">This interactive portfolio, built with a space theme and dynamic animations to showcase my skills.</p>
-                                <div class="project-tags">
-                                    <span class="tag">HTML5</span>
-                                    <span class="tag">CSS3</span>
-                                    <span class="tag">JavaScript</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                    <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="https://placehold.co/400x220/020412/32cd32?text=Project+Delta"
-                                            alt="Project Delta Screenshot"
-                                            onerror="this.onerror=null;this.src='https://placehold.co/400x220/020412/FFFFFF?text=Image+Not+Found';">
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Data Visualizer</h3>
-                                <p class="project-description">A web application for creating interactive charts and graphs from various data sources using D3.js.</p>
-                                <div class="project-tags">
-                                    <span class="tag">D3.js</span>
-                                    <span class="tag">API</span>
-                                    <span class="tag">SaaS</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                    <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="https://placehold.co/400x220/020412/ff4500?text=Project+Epsilon"
-                                            alt="Project Epsilon Screenshot"
-                                            onerror="this.onerror=null;this.src='https://placehold.co/400x220/020412/FFFFFF?text=Image+Not+Found';">
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Task Manager</h3>
-                                <p class="project-description">A collaborative to-do list application with real-time updates, built with Firebase and Vue.js.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Vue.js</span>
-                                    <span class="tag">Firebase</span>
-                                    <span class="tag">PWA</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                    <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="https://placehold.co/400x220/020412/da70d6?text=Project+Zeta"
-                                            alt="Project Zeta Screenshot"
-                                            onerror="this.onerror=null;this.src='https://placehold.co/400x220/020412/FFFFFF?text=Image+Not+Found';">
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Weather App</h3>
-                                <p class="project-description">A clean, simple weather application that provides forecasts using a third-party weather API.</p>
-                                <div class="project-tags">
-                                    <span class="tag">JavaScript</span>
-                                    <span class="tag">API</span>
-                                    <span class="tag">Geolocation</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                    <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
-                                </div>
+                            <div class="project-links">
+                                <a href="http://crizaltodo.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                                
                             </div>
                         </div>
                     </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/5_rbpxmi.png"
+                                alt="Wikipedia Search Application Screenshot">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Wikipedia Search</h3>
+                            <p class="project-description">A custom search tool that uses asynchronous API calls to retrieve and display curated Wikipedia results.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">REST API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="http://crizalwikipedia.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/4_cwwrpn.png"
+                                alt="Online Book Store Application Screenshot">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Online Book Store</h3>
+                            <p class="project-description">A dynamic online bookstore platform with flexible search and pagination to improve book discovery.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Bootstrap</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="http://crizallibrary.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/1_k5okwm.png"
+                                alt="SpendIQ Application Screenshot">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">SpendIQ</h3>
+                            <p class="project-description">A client-side web app for real-time barcode scanning and budget management with animated elements and data persistence.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">ZXing Library</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://spend-iq-pi.vercel.app" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/2_mym6d9.png" alt="Steganography Tool Screenshot">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Steganography Tool</h3>
+                            <p class="project-description">A multi-format steganography tool using Python and JavaScript to securely embed data in various media files.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">AES Encryption</span>
+                                <span class="tag">Steganography</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/chaitanyaponnada/Steganography" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/7_gp8mxk.png" alt="Grocery Web App Screenshot">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Grocery Web App (MERN)</h3>
+                            <p class="project-description">A fully functional e-commerce solution for groceries with a product catalog, secure checkout, and real-time order tracking.</p>
+                            <div class="project-tags">
+                                <span class="tag">React.js</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Express.js</span>
+                                <span class="tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/chaitanyaponnada/ShopSmart-Your-Digital-Grocery-Store-Experience" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="projects-grid-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/3_hfscji.png"
+                                alt="Todo Application Screenshot">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Todos Application</h3>
+                    <p class="project-description">A responsive to-do list management application with CRUD functionality, built to increase user productivity.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="http://crizaltodo.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://placehold.co/400x220/020412/ff8c00?text=Wikipedia+Search"
+                                alt="Wikipedia Search Application Screenshot">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Wikipedia Search</h3>
+                    <p class="project-description">A custom search tool that uses asynchronous API calls to retrieve and display curated Wikipedia results.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">REST API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="http://crizalwikipedia.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://placehold.co/400x220/020412/ffd700?text=Book+Store"
+                                alt="Online Book Store Application Screenshot">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Online Book Store</h3>
+                    <p class="project-description">A dynamic online bookstore platform with flexible search and pagination to improve book discovery.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="http://crizallibrary.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://placehold.co/400x220/020412/32cd32?text=SpendIQ"
+                                alt="SpendIQ Application Screenshot">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">SpendIQ</h3>
+                    <p class="project-description">A client-side web app for real-time barcode scanning and budget management with animated elements and data persistence.</p>
+                    <div class="project-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">ZXing Library</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://spend-iq-pi.vercel.app" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/2_mym6d9.png" alt="Steganography Tool Screenshot">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Steganography Tool</h3>
+                    <p class="project-description">A multi-format steganography tool using Python and JavaScript to securely embed data in various media files.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">AES Encryption</span>
+                        <span class="tag">Steganography</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/chaitanyaponnada/Steganography" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/7_gp8mxk.png" alt="Grocery Web App Screenshot">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Grocery Web App (MERN)</h3>
+                    <p class="project-description">A fully functional e-commerce solution for groceries with a product catalog, secure checkout, and real-time order tracking.</p>
+                    <div class="project-tags">
+                        <span class="tag">React.js</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/chaitanyaponnada/ShopSmart-Your-Digital-Grocery-Store-Experience" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
         <section id="education" aria-labelledby="education-title">
             <div class="section-video-background">
                 <video autoplay loop muted playsinline id="education-video-dark">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754548722/Untitled_design_17_hydbgg.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <video autoplay loop muted playsinline id="education-video-light">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754418924/Untitled_design_8_jctjc5.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
             <h2 id="education-title" class="sr-only">Education</h2>
@@ -1896,11 +1719,9 @@ MEDIA QUERIES FOR RESPONSIVENESS
             <div class="section-video-background">
                 <video autoplay loop muted playsinline id="certifications-video-dark">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754549369/Dark_Motion_Polygon___Free_Animation_Loop_Background_and_Screensaver_rhkrzc.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <video autoplay loop muted playsinline id="certifications-video-light">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754418915/Untitled_design_7_uvr3mx.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
             </div>
             <h2 id="certifications-title" class="sr-only">Certifications</h2>
@@ -1916,50 +1737,48 @@ MEDIA QUERIES FOR RESPONSIVENESS
                                     <h3 class="text-lg font-bold font-orbitron">IT Specialist – HTML and CSS</h3>
                                     <p class="text-sm opacity-80">Pearson</p>
                                 </div>
-                                <a href="#" class="cta-button mt-3 sm:mt-0">View Certificate</a>
-                            </div>
-                        </li>
-                        <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="100">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
-                                <div>
-                                    <h3 class="text-lg font-bold font-orbitron">Programming Essentials in C (CLA)</h3>
-                                    <p class="text-sm opacity-80">Cisco</p>
-                                </div>
-                                <a href="#" class="cta-button mt-3 sm:mt-0">View Certificate</a>
-                            </div>
-                        </li>
-                        <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="200">
-                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
-                                <div>
-                                    <h3 class="text-lg font-bold font-orbitron">Python Programming Essentials</h3>
-                                    <p class="text-sm opacity-80">OpenEDG</p>
-                                </div>
-                                <a href="#" class="cta-button mt-3 sm:mt-0">View Certificate</a>
+                                <a href="https://drive.google.com/file/d/1tT8EGE4c7l8QPaGzj67obNn-qFVn5iBk/view?usp=drive_link" target="_blank" class="cta-button mt-3 sm:mt-0">View Certificate</a>
                             </div>
                         </li>
                         <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="flex flex-col sm:flex-row justify-between sm:items-center">
                                 <div>
+                                    <h3 class="text-lg font-bold font-orbitron">Programming Essentials in C (CLA)</h3>
+                                    <p class="text-sm opacity-80">Cisco</p>
+                                </div>
+                                <a href="https://drive.google.com/file/d/1UxzaXIqcbdEWlmMUUsMb-ZiXDESYsYD2/view?usp=sharing" target="_blank" class="cta-button mt-3 sm:mt-0">View Certificate</a>
+                            </div>
+                        </li>
+                        <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <div>
+                                    <h3 class="text-lg font-bold font-orbitron">Python Programming Essentials</h3>
+                                    <p class="text-sm opacity-80">OpenEDG</p>
+                                </div>
+                                <a href="https://drive.google.com/file/d/1amOD5Gv4KsufRp2HkyRjfnWNB9chbR59/view?usp=drive_link" target="_blank" class="cta-button mt-3 sm:mt-0">View Certificate</a>
+                            </div>
+                        </li>
+                        <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="500">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <div>
                                     <h3 class="text-lg font-bold font-orbitron">IT Specialist – Java</h3>
                                     <p class="text-sm opacity-80">Pearson</p>
                                 </div>
-                                <a href="#" class="cta-button mt-3 sm:mt-0">View Certificate</a>
+                                <a href="https://drive.google.com/file/d/115-CmEr5enDWYo_Xs-AEFknD7209xU68/view?usp=drive_link" target="_blank" class="cta-button mt-3 sm:mt-0">View Certificate</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
-            
+        
         <section id="contact" aria-labelledby="contact-title">
             <div class="section-video-background">
                 <video autoplay loop muted playsinline id="contact-video-dark">
                     <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754513158/Untitled_design_12_vw7gu4.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
                 </video>
                 <video autoplay loop muted playsinline id="contact-video-light">
-                    <source src="https://res.com/dybfozdea/video/upload/v1754513540/Untitled_design_15_m4qlqc.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                    <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1754513540/Untitled_design_15_m4qlqc.mp4" type="video/mp4">
                 </video>
             </div>
             <h2 id="contact-title" class="sr-only">Contact</h2>
@@ -1973,8 +1792,7 @@ MEDIA QUERIES FOR RESPONSIVENESS
                             <h3 class="text-2xl font-bold font-orbitron">Get in Touch</h3>
                             <p class="mt-2 opacity-80">Have a project in mind or just want to say hello? I'd love to hear from you. Send me a message, and I'll get back to you as soon as possible.</p>
                             <div class="mt-8 space-y-4">
-                                <p class="flex items-center"><i data-feather="mail" class="w-5 h-5 mr-3"></i> contact@chaitanyaponnada.dev</p>
-                                <p class="flex items-center"><i data-feather="phone" class="w-5 h-5 mr-3"></i> +91 12345 67890</p>
+                                <p class="flex items-center"><i data-feather="mail" class="w-5 h-5 mr-3"></i> chaitanyaponnada657@gmail.com</p>
                             </div>
                         </div>
                         <form id="contact-form" class="space-y-8" data-aos="fade-left" data-aos-delay="200">
@@ -2112,11 +1930,9 @@ MEDIA QUERIES FOR RESPONSIVENESS
             const contactForm = document.getElementById('contact-form');
             const sendButton = contactForm.querySelector('.send-button');
             const buttonText = sendButton.querySelector('.button-text');
-            const rocketIcon = sendButton.querySelector('.rocket-icon'); 
+            const rocketIcon = sendButton.querySelector('.rocket-icon');
             
-            // FIX: Declare customCursor with const and assign it here
-            const customCursor = document.getElementById('custom-cursor'); 
-            console.log('Custom Cursor element:', customCursor); // Added for debugging
+            const customCursor = document.getElementById('custom-cursor');
 
             // --- EmailJS Initialization ---
             emailjs.init("2OWE406RYsMxtRGsV"); // Public Key
@@ -2124,14 +1940,7 @@ MEDIA QUERIES FOR RESPONSIVENESS
 
             // --- Skills Section Logic (Static List View) ---
             function setupSkillsDisplay() {
-                const orbitContainer = document.querySelector('.orbit-container');
-                const skillsGrid = document.querySelector('.skills-grid');
-
-                // Always show the grid and hide the orbital view
-                skillsGrid.classList.remove('hidden');
-                if (orbitContainer) { // Check if orbitContainer exists before trying to add 'hidden'
-                    orbitContainer.classList.add('hidden');
-                }
+                // This function is now empty as the CSS media query handles the display toggle
             }
 
             // --- 3D Project Slider Logic ---
@@ -2163,11 +1972,13 @@ MEDIA QUERIES FOR RESPONSIVENESS
                 mobileNavOverlay.classList.add('visible');
                 mainContent.classList.add('content-blur');
                 bottomNav.classList.add('content-blur');
+                body.style.overflow = 'hidden'; // Disable body scroll
             };
             const closeMenu = () => {
                 mobileNavOverlay.classList.remove('visible');
                 mainContent.classList.remove('content-blur');
                 bottomNav.classList.remove('content-blur');
+                body.style.overflow = 'auto'; // Enable body scroll
             };
 
             hamburgerBtn.addEventListener('click', openMenu);
@@ -2184,11 +1995,9 @@ MEDIA QUERIES FOR RESPONSIVENESS
                 htmlElement.setAttribute('data-theme', theme);
                 const isDark = theme === 'dark';
 
-                // Show/hide theme icons
                 darkIcons.forEach(i => i.style.display = isDark ? 'block' : 'none');
                 lightIcons.forEach(i => i.style.display = isDark ? 'none' : 'block');
 
-                // Show/hide video backgrounds for each section
                 const sections = ['hero', 'experience', 'skills', 'projects', 'education', 'certifications', 'contact'];
                 sections.forEach(sectionId => {
                     const darkVideo = document.getElementById(`${sectionId}-video-dark`);
@@ -2207,51 +2016,38 @@ MEDIA QUERIES FOR RESPONSIVENESS
 
             function showModal() {
                 modal.classList.add('visible');
+                mainContent.classList.add('content-blur');
+                bottomNav.classList.add('content-blur');
+                document.body.style.overflow = 'hidden';
             }
 
             function hideModal() {
                 modal.classList.remove('visible');
+                mainContent.classList.remove('content-blur');
+                bottomNav.classList.remove('content-blur');
+                document.body.style.overflow = 'auto';
             }
 
             themeToggleButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const currentTheme = htmlElement.getAttribute('data-theme');
                     if (currentTheme === 'light') {
-                        showModal(); // Modal opens when switching from light to dark
+                        showModal();
                     } else {
-                        // If already dark, switch to light directly without modal
                         applyTheme('light');
-                        showThemeMessage('light');
                     }
                 });
             });
 
             modalYes.addEventListener('click', () => {
-                // User clicked "Enter" in modal, so switch to dark
                 applyTheme('dark');
-                showThemeMessage('dark');
                 hideModal();
             });
 
             modalNo.addEventListener('click', () => {
-                // User clicked "Leave" in modal, just hide modal
                 hideModal();
             });
             
-            const showThemeMessage = (theme) => {
-                const existingToast = document.querySelector('.toast-message');
-                if (existingToast) existingToast.remove();
-                const toast = document.createElement('div');
-                toast.textContent = theme === 'dark' ? 'Dark Mode Activated' : 'Light Mode Activated';
-                toast.className = 'toast-message';
-                document.body.appendChild(toast);
-                setTimeout(() => toast.classList.add('show'), 10);
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                    toast.addEventListener('transitionend', () => toast.remove(), { once: true });
-                }, 2000);
-            };
-
             // --- Smooth Scrolling & Active Nav Link on Scroll ---
             const sections = document.querySelectorAll('main > section[id]');
             
@@ -2266,7 +2062,8 @@ MEDIA QUERIES FOR RESPONSIVENESS
                         current = section.getAttribute('id');
                     }
                 });
-                allNavLinks.forEach(link => {
+
+                document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href').substring(1) === current) {
                         link.classList.add('active');
@@ -2301,60 +2098,34 @@ MEDIA QUERIES FOR RESPONSIVENESS
 
             // --- Contact Form Logic with EmailJS ---
             if (contactForm) {
-                contactForm.addEventListener('submit', async function(e) { 
+                contactForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
                     if (sendButton.classList.contains('sending') || sendButton.classList.contains('sent')) return;
 
-                    // 1. Change to sending state
                     sendButton.classList.add('sending');
-                    sendButton.disabled = true; // Disable button
-                    buttonText.textContent = 'Sending...'; // Show loading text
-                    if (rocketIcon) rocketIcon.style.display = 'none'; // Hide rocket icon if it exists
-
+                    sendButton.disabled = true;
+                    buttonText.textContent = 'Sending...';
 
                     try {
-                        // Use your provided EmailJS Service ID, Template ID, and the form element
-                        await emailjs.sendForm('service_jfdmiis', 'template_daoqn2a', this) // Use 'this' to refer to the form
+                        await emailjs.sendForm('service_jfdmiis', 'template_daoqn2a', this);
                         
-                        // 2. On successful send
                         sendButton.classList.remove('sending');
                         sendButton.classList.add('sent');
-                        buttonText.textContent = 'Sent!'; // Change text to "Sent!"
-                        sendButton.style.backgroundColor = '#22c55e'; // Make button green
-                        // Apply green shadow only if in dark theme, otherwise remove it for light theme
-                        if (htmlElement.getAttribute('data-theme') === 'dark') {
-                            sendButton.style.boxShadow = '0 0 15px rgba(34, 197, 94, 0.5)';
-                        } else {
-                            sendButton.style.boxShadow = 'none';
-                        }
+                        buttonText.textContent = 'Sent!';
 
-                        // Reset button and form after a short delay
                         setTimeout(() => {
                             sendButton.classList.remove('sent');
-                            sendButton.disabled = false; // Re-enable button
-                            buttonText.textContent = 'Send Message'; // Reset text
-                            sendButton.style.backgroundColor = ''; // Reset background color
-                            sendButton.style.boxShadow = ''; // Reset shadow
-                            if (rocketIcon) rocketIcon.style.display = 'inline-block'; // Show rocket icon again
-                            contactForm.reset(); // Clear form fields
-                        }, 2500); // Wait 2.5 seconds before resetting
+                            sendButton.disabled = false;
+                            buttonText.textContent = 'Send Message';
+                            contactForm.reset();
+                        }, 2500);
                     } catch (error) {
                         console.error('Error sending email:', error);
-                        // Handle error state: e.g., show an error message to the user
                         sendButton.classList.remove('sending');
                         sendButton.disabled = false;
                         buttonText.textContent = 'Failed!';
-                        sendButton.style.backgroundColor = '#ef4444'; // Red for error
-                        if (htmlElement.getAttribute('data-theme') === 'dark') {
-                            sendButton.style.boxShadow = '0 0 15px rgba(239, 68, 68, 0.5)';
-                        } else {
-                            sendButton.style.boxShadow = 'none';
-                        }
-                        if (rocketIcon) rocketIcon.style.display = 'inline-block'; // Show rocket icon again
                         setTimeout(() => {
-                            sendButton.style.backgroundColor = '';
-                            sendButton.style.boxShadow = '';
                             buttonText.textContent = 'Send Message';
                         }, 2000);
                     }
@@ -2362,8 +2133,7 @@ MEDIA QUERIES FOR RESPONSIVENESS
             }
             
             // --- Custom Cursor Hover Effects ---
-            // FIX: Ensure customCursor is defined before use
-            if (customCursor) { 
+            if (customCursor) {
                 const interactiveElements = document.querySelectorAll('a, button, .project-card');
                 interactiveElements.forEach(el => {
                     el.addEventListener('mouseenter', () => customCursor.classList.add('hover'));
@@ -2379,7 +2149,6 @@ MEDIA QUERIES FOR RESPONSIVENESS
             // --- Event Listener for Slider & Skills ---
             window.addEventListener('resize', () => {
                 setup3DSlider();
-                setupSkillsDisplay(); // Call the updated function
             });
 
             // --- Intro Animation on Load ---
@@ -2389,7 +2158,6 @@ MEDIA QUERIES FOR RESPONSIVENESS
                     setTimeout(() => {
                         preloader.classList.add('hidden');
                     }, 500);
-                    setupSkillsDisplay(); // Initial call for skills display on load
                 });
             });
         });
