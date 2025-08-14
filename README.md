@@ -1,7 +1,7 @@
 # 🌐 Chaitanya Ponnada – Portfolio Website  
 
-📹 **Live Demo**: [chaitanyaponnada.vercel.app](https://chaitanyaponnada.vercel.app)  
-📄 **Resume**: [View Resume](https://drive.google.com/file/d/1cwjQjx2E2X7BOqvVY4jp_D-2r4sCTrCo/view?usp=sharing)  
+📹 **Live Demo**: [chaitanyaponnada.vercel.app](https://chaitanyaponnadaportfolio.vercel.app/)  
+📄 **Resume**: [View Resume](https://drive.google.com/file/d/1cwjQjx2E2X7BOqvVY4jp_D-2r4sCTrCo/view?usp=sharing)
 
 **A modern, responsive personal portfolio showcasing skills, projects, experience, education, and certifications with futuristic design elements, interactive animations, and theme-based video backgrounds.**  
 
@@ -60,7 +60,7 @@
 ---
 
 ## 🎥 Demo  
-📹 **Live Demo**: [chaitanyaponnada.vercel.app](https://chaitanyaponnada.vercel.app)  
+📹 **Live Demo**: [chaitanyaponnada.vercel.app](https://chaitanyaponnadaportfolio.vercel.app/)  
 
 ---
 
@@ -72,5 +72,4 @@
 📧 **Email**: [chaitanyaponnada657@gmail.com](mailto:chaitanyaponnada657@gmail.com)  
 🔗 **LinkedIn**: [Chaitanya Ponnada](https://www.linkedin.com/in/chaitanya-ponnada/)  
 📄 **Resume**: [View Resume](https://drive.google.com/file/d/1cwjQjx2E2X7BOqvVY4jp_D-2r4sCTrCo/view?usp=sharing)  
-📄 **CODOLIO PROFILE**: https://codolio.com/profile/chaitanyaponnada
 ---
