@@ -46,7 +46,7 @@ body {
 }
 
 main {
-    padding-bottom: 120px;
+    /* Removed padding-bottom to connect footer */
 }
 
 main > section[id] {
@@ -810,7 +810,7 @@ main {
     width: 240px;
     height: 360px;
     transform-style: preserve-3d;
-    animation: rotate-carousel 30s ease-in-out infinite;
+    animation: rotate-carousel 40s linear infinite; /* Adjusted duration */
 }
 
 @keyframes rotate-carousel {
@@ -827,7 +827,7 @@ main {
     top: 0;
     left: 0;
     width: 240px;
-    height: 360px;
+    height: 300px;
     border-radius: 1rem;
     overflow: visible;
     transition: transform 0.5s ease;
@@ -864,7 +864,7 @@ main {
 }
 
 .project-image {
-    height: 120px;
+    height: 250px;
     background-color: rgba(100, 116, 139, 0.2);
     display: flex;
     align-items: center;
@@ -888,12 +888,12 @@ main {
 
 .project-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.1rem;
+    font-size: 10px;
 }
 
 .project-description {
     opacity: 0.8;
-    font-size: 0.8rem;
+    font-size: 8px;
     flex-grow: 1;
     margin: 0.5rem 0;
 }
@@ -964,8 +964,9 @@ main {
 .orbit-container { display: none; }
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
     max-width: 700px;
     justify-items: center;
     align-items: center;
@@ -1157,9 +1158,172 @@ main {
 }
 
 /* ==============================================
+NEW STYLES: Footer, Video Modal, Scroll to Top
+============================================== */
+.final-footer {
+    padding: 6rem 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Orbitron', sans-serif;
+    scroll-snap-align: end; /* FIX: Make footer a scroll snap point */
+}
+[data-theme="dark"] .final-footer {
+    background-color: #000000;
+    color: #a7c0e0;
+}
+[data-theme="light"] .final-footer {
+    background-color: #f9fafb;
+    color: #4b5563;
+}
+.footer-name-gradient {
+    display: inline-block; /* FIX: Ensure proper box model for gradient */
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shine 4s infinite linear;
+    background-size: 200% auto;
+}
+[data-theme="dark"] .footer-name-gradient {
+    background: linear-gradient(90deg, #ff8c00, #ffd700, #ff8c00);
+    -webkit-background-clip: text; /* Re-apply for full compatibility */
+    background-clip: text;
+}
+[data-theme="light"] .footer-name-gradient {
+    background: linear-gradient(90deg, #1e2a44, #3b82f6, #1e2a44);
+    -webkit-background-clip: text; /* Re-apply for full compatibility */
+    background-clip: text;
+}
+
+.video-modal-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 90vw;
+    width: 900px;
+    position: relative;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.75rem;
+}
+.close-video-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    z-index: 110;
+}
+[data-theme="dark"] .close-video-btn {
+    background-color: #e0e6f1;
+    color: #000000;
+}
+[data-theme="dark"] .close-video-btn:hover {
+    background-color: #00bfff;
+    transform: rotate(90deg);
+}
+[data-theme="light"] .close-video-btn {
+    background-color: #333333;
+    color: #f9fafb;
+}
+[data-theme="light"] .close-video-btn:hover {
+    background-color: #3b82f6;
+    transform: rotate(90deg);
+}
+
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem; /* FIX: Moved to the right */
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 40;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+.scroll-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.scroll-to-top-btn .rotating-text-svg {
+    width: 100%;
+    height: 100%;
+    animation: rotate-scroll-text 10s linear infinite;
+}
+.scroll-to-top-btn .scroll-arrow-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+[data-theme="dark"] .scroll-to-top-btn .scroll-arrow-container {
+    background-color: #00bfff;
+    color: #020412;
+}
+[data-theme="light"] .scroll-to-top-btn .scroll-arrow-container {
+    background-color: #3b82f6;
+    color: #ffffff;
+}
+@keyframes rotate-scroll-text {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.scroll-to-top-btn text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+[data-theme="dark"] .scroll-to-top-btn text {
+    fill: #00bfff;
+}
+[data-theme="light"] .scroll-to-top-btn text {
+    fill: #3b82f6;
+}
+
+/* ==============================================
 MEDIA QUERIES FOR RESPONSIVENESS
 ============================================== */
 @media (max-width: 992px) {
+    /* --- FIX: Allow sections to have flexible height on mobile to prevent content from being cut off --- */
+    main > section[id] {
+        min-height: auto;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    
     .name-gradient { font-size: 3rem; line-height: 1; text-align: center; }
     .cta-group { margin-top: 1rem; flex-direction: column; align-items: center; gap: 0.5rem; }
     .cta-row { flex-direction: column; gap: 0.5rem; }
@@ -1196,6 +1360,19 @@ MEDIA QUERIES FOR RESPONSIVENESS
     .project-description { font-size: 0.75rem; }
     .project-link { font-size: 0.75rem; }
     .experience-item { flex-direction: column; align-items: center; text-align: center; }
+
+    /* --- FIX: Make skill icons smaller on mobile devices --- */
+    .skills-grid .skill-planet {
+        width: 80px;
+        height: 80px;
+    }
+
+    .scroll-to-top-btn {
+        bottom: 5rem; /* Adjust position to avoid overlap with nav */
+        right: 1rem; /* FIX: Moved to the right */
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media (min-width: 993px) {
@@ -1231,7 +1408,7 @@ MEDIA QUERIES FOR RESPONSIVENESS
             <h2 id="hero-title" class="sr-only">Home</h2>
             <div class="container mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-4 text-center md:text-left">
                 <div class="md:w-1/2 flex flex-col items-center md:items-end justify-center" data-aos="fade-right">
-                    <h1 class="text-6xl md:text-8xl font-bold font-orbitron name-gradient">Jaya Chaitanya Ponnada</h1>
+                    <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-orbitron name-gradient">Jaya Chaitanya Ponnada</h1>
                     <p class="text-lg md:text-xl mt-4 font-bold opacity-80 font-orbitron">Full Stack Developer</p>
                     
                     <div class="info-circle">
@@ -1247,7 +1424,7 @@ MEDIA QUERIES FOR RESPONSIVENESS
                                 <i data-feather="download" class="h-5 w-5"></i>
                                 <span>Resume</span>
                             </a>
-                            <button class="icon-button play-button" aria-label="Play Video">
+                            <button id="play-video-btn" class="icon-button play-button" aria-label="Play Video">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6">
                                     <path d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18c.62-.39.62-1.29 0-1.69L9.54 5.98C8.87 5.55 8 6.03 8 6.82z"/>
                                 </svg>
@@ -1261,15 +1438,13 @@ MEDIA QUERIES FOR RESPONSIVENESS
                                 <i data-feather="github" class="h-5 w-5"></i>
                             </a>
                             <a href="https://codolio.com/profile/chaitanyaponnada" target="_blank" rel="noopener noreferrer" class="icon-button" aria-label="View Codolio Profile">
-                                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor">
-                                    <text x="50%" y="60%" dominant-baseline="central" text-anchor="middle" font-size="20" font-weight="bold" font-family="Orbitron, sans-serif">C</text>
-                                </svg>
+                                <i data-feather="code" class="h-5 w-5"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="relative md:w-1/2 flex justify-center items-center" data-aos="fade-left">
-                    <div class="profile-image-container w-100 md:w-[600px]">
+                    <div class="profile-image-container w-full max-w-md md:max-w-none md:w-[600px]">
                         <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754310990/22P31A4248-Photoroom_ojugmw.png" alt="A placeholder portrait image" class="w-full h-auto">
                     </div>
                 </div>
@@ -1380,17 +1555,17 @@ MEDIA QUERIES FOR RESPONSIVENESS
                     <h2 class="animated-title" data-aos="fade-up">Skills</h2>
                 </div>
                 <div class="skills-grid" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547241/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail_slcr2x.png" alt="React.js Logo"></div>
+                    <div class="skill-planet"><img src="./images/React.svg" alt="React.js Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/express-js_vincg6.png" alt="Express Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547244/Node.js_hshgqh.png" alt="Node.js Logo"></div>
-                    <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547246/mongoDB_myozal.png" alt="MongoDB Logo"></div>
+                    <div class="skill-planet"><img src="./images/MongoDB.svg" alt="MongoDB Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547245/logo-mysql-mysql-logo-png-images-are-download-crazypng-21_b8covf.png" alt="MySQL Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547245/git_yfx4yq.png" alt="Git Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/bootstrap-original-wordmark-8x_gumfrb.png" alt="Bootstrap Logo"></div>
-                    <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547241/js_shtbsf.webp" alt="JavaScript Logo"></div>
+                    <div class="skill-planet"><img src="./images/723d6e4ad7a0c1b13826368386b3ffa3.png" alt="JavaScript Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/HTML5_logo_and_wordmark.svg_kkwgxl.png" alt="HTML Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547241/css_dm1krx.png" alt="CSS Logo"></div>
-                    <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547242/hd-python-logo-symbol-transparent-png-735811696257415dbkifcuokn_dn4qjt.png" alt="Python Logo"></div>
+                    <div class="skill-planet"><img src="./images/python-svgrepo-com.svg" alt="Python Logo"></div>
                     <div class="skill-planet"><img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754547243/java_jppc3s.webp" alt="JAVA Logo"></div>
                 </div>
             </div>
@@ -1410,90 +1585,74 @@ MEDIA QUERIES FOR RESPONSIVENESS
         <div class="text-center">
             <h2 class="animated-title" data-aos="fade-up">Projects</h2>
         </div>
-        <div class="projects-3d-carousel-wrapper" data-aos="fade-in" data-aos-delay="200">
+        <div class="projects-3d-carousel-wrapper mt-20" data-aos="fade-in" data-aos-delay="200">
             <div class="slider-container">
                 <div class="carousel">
+                    <!-- Project 1 -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/3_hfscji.png"
-                                alt="Todo Application Screenshot">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/3_hfscji.png" alt="Todo Application Screenshot">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Todos Application</h3>
                             <p class="project-description">A responsive to-do list management application with CRUD functionality, built to increase user productivity.</p>
                             <div class="project-tags">
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">Bootstrap</span>
+                                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span>
                             </div>
                             <div class="project-links">
                                 <a href="http://crizaltodo.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                
                             </div>
                         </div>
                     </div>
+                    <!-- Project 2 -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/5_rbpxmi.png"
-                                alt="Wikipedia Search Application Screenshot">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/5_rbpxmi.png" alt="Wikipedia Search Application Screenshot">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Wikipedia Search</h3>
                             <p class="project-description">A custom search tool that uses asynchronous API calls to retrieve and display curated Wikipedia results.</p>
                             <div class="project-tags">
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">REST API</span>
+                                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">REST API</span>
                             </div>
                             <div class="project-links">
                                 <a href="http://crizalwikipedia.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                               
                             </div>
                         </div>
                     </div>
+                    <!-- Project 3 -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/4_cwwrpn.png"
-                                alt="Online Book Store Application Screenshot">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/4_cwwrpn.png" alt="Online Book Store Application Screenshot">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Online Book Store</h3>
                             <p class="project-description">A dynamic online bookstore platform with flexible search and pagination to improve book discovery.</p>
                             <div class="project-tags">
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">Bootstrap</span>
+                                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span>
                             </div>
                             <div class="project-links">
                                 <a href="http://crizallibrary.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                
                             </div>
                         </div>
                     </div>
+                    <!-- Project 4 -->
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/1_k5okwm.png"
-                                alt="SpendIQ Application Screenshot">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/1_k5okwm.png" alt="SpendIQ Application Screenshot">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">SpendIQ</h3>
-                            <p class="project-description">A client-side web app for real-time barcode scanning and budget management with animated elements and data persistence.</p>
+                            <p class="project-description">A client-side web app for real-time barcode scanning and budget management with data persistence.</p>
                             <div class="project-tags">
-                                <span class="tag">HTML</span>
-                                <span class="tag">CSS</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">ZXing Library</span>
+                                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">ZXing</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://spend-iq-pi.vercel.app" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                                
                             </div>
                         </div>
                     </div>
-
+                    <!-- Project 5 -->
                     <div class="project-card">
                         <div class="project-image">
                             <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/2_mym6d9.png" alt="Steganography Tool Screenshot">
@@ -1502,121 +1661,142 @@ MEDIA QUERIES FOR RESPONSIVENESS
                             <h3 class="project-title">Steganography Tool</h3>
                             <p class="project-description">A multi-format steganography tool using Python and JavaScript to securely embed data in various media files.</p>
                             <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">AES Encryption</span>
-                                <span class="tag">Steganography</span>
+                                <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">AES</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://github.com/chaitanyaponnada/Steganography" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
                             </div>
                         </div>
                     </div>
-
+                    <!-- Project 6 -->
                     <div class="project-card">
                         <div class="project-image">
                             <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/7_gp8mxk.png" alt="Grocery Web App Screenshot">
                         </div>
                         <div class="project-content">
                             <h3 class="project-title">Grocery Web App (MERN)</h3>
-                            <p class="project-description">A fully functional e-commerce solution for groceries with a product catalog, secure checkout, and real-time order tracking.</p>
+                            <p class="project-description">A functional e-commerce solution for groceries with a product catalog, secure checkout, and order tracking.</p>
                             <div class="project-tags">
-                                <span class="tag">React.js</span>
-                                <span class="tag">Node.js</span>
-                                <span class="tag">Express.js</span>
-                                <span class="tag">MongoDB</span>
+                                <span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://github.com/chaitanyaponnada/ShopSmart-Your-Digital-Grocery-Store-Experience" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
                             </div>
                         </div>
                     </div>
-                    
+                    <!-- NEW Project 7 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1755424882/8_g85pve.png" alt="Light Odyssey">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Lighthouse Odyssey</h3>
+                            <p class="project-description">MCP Learning Path Generator – An AI tool that creates personalized study plans using MCP, LangChain, and APIs for YouTube, Google Drive, and Notion.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">Gemini API</span><span class="tag">Streamlit</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://lighthouseodyssey.streamlit.app/" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NEW Project 8 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1755424882/10_cxpx58.png" alt="Online Piggy Bank">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Online Piggy Bank</h3>
+                            <p class="project-description">A React app that lets users deposit, withdraw, and track savings with real-time balance updates and a list of deposits.</p>
+                            <div class="project-tags">
+                                <span class="tag">React.js</span><span class="tag">CSS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://online-piggy-bank-react.vercel.app/" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NEW Project 9 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1755424882/9_lgnnss.png" alt="Bank loan management system">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Bank Loan Management</h3>
+                            <p class="project-description">A web app for customer registration, loan issuance, repayment tracking, and ledger management.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Node.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://bank-loan-management-system-85pi.onrender.com/" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="projects-grid-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <!-- All 9 projects repeated for mobile view -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/3_hfscji.png"
-                                alt="Todo Application Screenshot">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/3_hfscji.png" alt="Todo Application Screenshot">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Todos Application</h3>
                     <p class="project-description">A responsive to-do list management application with CRUD functionality, built to increase user productivity.</p>
                     <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Bootstrap</span>
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span>
                     </div>
                     <div class="project-links">
                         <a href="http://crizaltodo.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/5_rbpxmi.png"
-                                alt="Wikipedia Search Application Screenshot">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/5_rbpxmi.png" alt="Wikipedia Search Application Screenshot">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Wikipedia Search</h3>
                     <p class="project-description">A custom search tool that uses asynchronous API calls to retrieve and display curated Wikipedia results.</p>
                     <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">REST API</span>
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">REST API</span>
                     </div>
                     <div class="project-links">
                         <a href="http://crizalwikipedia.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/4_cwwrpn.png"
-                                alt="Online Book Store Application Screenshot">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/4_cwwrpn.png" alt="Online Book Store Application Screenshot">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Online Book Store</h3>
                     <p class="project-description">A dynamic online bookstore platform with flexible search and pagination to improve book discovery.</p>
                     <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">Bootstrap</span>
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Bootstrap</span>
                     </div>
                     <div class="project-links">
                         <a href="http://crizallibrary.ccbp.tech" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Source</a>
                     </div>
                 </div>
             </div>
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/1_k5okwm.png"
-                                alt="SpendIQ Application Screenshot">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/1_k5okwm.png" alt="SpendIQ Application Screenshot">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">SpendIQ</h3>
-                    <p class="project-description">A client-side web app for real-time barcode scanning and budget management with animated elements and data persistence.</p>
+                    <p class="project-description">A client-side web app for real-time barcode scanning and budget management with data persistence.</p>
                     <div class="project-tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">ZXing Library</span>
+                        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">ZXing</span>
                     </div>
                     <div class="project-links">
                         <a href="https://spend-iq-pi.vercel.app" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
-                        <a href="#" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Live Demo</a>
                     </div>
                 </div>
             </div>
-
             <div class="project-card">
                 <div class="project-image">
                     <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754898922/2_mym6d9.png" alt="Steganography Tool Screenshot">
@@ -1625,36 +1805,73 @@ MEDIA QUERIES FOR RESPONSIVENESS
                     <h3 class="project-title">Steganography Tool</h3>
                     <p class="project-description">A multi-format steganography tool using Python and JavaScript to securely embed data in various media files.</p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">AES Encryption</span>
-                        <span class="tag">Steganography</span>
+                        <span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">AES</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/chaitanyaponnada/Steganography" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
                     </div>
                 </div>
             </div>
-
             <div class="project-card">
                 <div class="project-image">
                     <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1754901624/7_gp8mxk.png" alt="Grocery Web App Screenshot">
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Grocery Web App (MERN)</h3>
-                    <p class="project-description">A fully functional e-commerce solution for groceries with a product catalog, secure checkout, and real-time order tracking.</p>
+                    <p class="project-description">A functional e-commerce solution for groceries with a product catalog, secure checkout, and order tracking.</p>
                     <div class="project-tags">
-                        <span class="tag">React.js</span>
-                        <span class="tag">Node.js</span>
-                        <span class="tag">Express.js</span>
-                        <span class="tag">MongoDB</span>
+                        <span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
                     </div>
                     <div class="project-links">
                         <a href="https://github.com/chaitanyaponnada/ShopSmart-Your-Digital-Grocery-Store-Experience" target="_blank" class="project-link"><i data-feather="github" class="h-4 w-4"></i> Project Link</a>
                     </div>
                 </div>
             </div>
-
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1755424882/8_g85pve.png" alt="Light Odyssey">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Lighthouse Odyssey</h3>
+                    <p class="project-description">MCP Learning Path Generator – An AI tool that creates personalized study plans using MCP, LangChain, and APIs for YouTube, Google Drive, and Notion.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">Gemini API</span><span class="tag">Streamlit</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://lighthouseodyssey.streamlit.app/" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1755424882/10_cxpx58.png" alt="Online Piggy Bank">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Online Piggy Bank</h3>
+                    <p class="project-description">A React app that lets users deposit, withdraw, and track savings with real-time balance updates and a list of deposits.</p>
+                    <div class="project-tags">
+                        <span class="tag">React.js</span><span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://online-piggy-bank-react.vercel.app/" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://res.cloudinary.com/dybfozdea/image/upload/v1755424882/9_lgnnss.png" alt="Bank loan management system">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Bank Loan Management</h3>
+                    <p class="project-description">A web app for customer registration, loan issuance, repayment tracking, and ledger management.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Node.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://bank-loan-management-system-85pi.onrender.com/" target="_blank" class="project-link"><i data-feather="link" class="h-4 w-4"></i> View Live</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1740,6 +1957,24 @@ MEDIA QUERIES FOR RESPONSIVENESS
                                 <a href="https://drive.google.com/file/d/1tT8EGE4c7l8QPaGzj67obNn-qFVn5iBk/view?usp=drive_link" target="_blank" class="cta-button mt-3 sm:mt-0">View Certificate</a>
                             </div>
                         </li>
+                        <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <div>
+                                    <h3 class="text-lg font-bold font-orbitron">Build Your Own Static Website</h3>
+                                    <p class="text-sm opacity-80">Nxtwave</p>
+                                </div>
+                                <a href="https://certificates.ccbp.in/academy/static-website?id=COXSVJINUF" target="_blank" class="cta-button mt-3 sm:mt-0">View Certificate</a>
+                            </div>
+                        </li>
+                        <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <div>
+                                    <h3 class="text-lg font-bold font-orbitron">Build Your Own Responsive Website</h3>
+                                    <p class="text-sm opacity-80">Nxtwave</p>
+                                </div>
+                                <a href="https://certificates.ccbp.in/academy/build-your-own-responsive-website?id=PRFYVYPVOR" target="_blank" class="cta-button mt-3 sm:mt-0">View Certificate</a>
+                            </div>
+                        </li>
                         <li class="glass-card p-4" data-aos="fade-up" data-aos-delay="300">
                             <div class="flex flex-col sm:flex-row justify-between sm:items-center">
                                 <div>
@@ -1823,6 +2058,10 @@ MEDIA QUERIES FOR RESPONSIVENESS
             </div>
         </section>
     </main>
+
+    <footer class="final-footer">
+        <p>developed by <br/><span class="footer-name-gradient">Chaitanya Ponnada</span></p>
+    </footer>
     
     <nav class="bottom-nav">
         <div class="bottom-nav-container">
@@ -1884,6 +2123,34 @@ MEDIA QUERIES FOR RESPONSIVENESS
         </div>
     </div>
 
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal-overlay">
+        <div class="video-modal-content">
+            <button id="close-video-modal" class="close-video-btn" aria-label="Close video player">&times;</button>
+            <div class="video-container">
+                <video id="portfolio-video" controls>
+                    <source src="https://res.cloudinary.com/dybfozdea/video/upload/v1755431189/Crizal_s_Domain_-_Google_Chrome_2024-09-14_14-34-52_i7pxs1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <a href="#hero" id="scroll-to-top" class="scroll-to-top-btn" aria-label="Scroll to top">
+        <div class="scroll-arrow-container">
+            <i data-feather="arrow-up"></i>
+        </div>
+        <svg class="rotating-text-svg" viewBox="0 0 100 100">
+            <path d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" id="circlePath"></path>
+            <text>
+                <textPath xlink:href="#circlePath">
+                    Scroll Up • Scroll Up • Scroll Up •
+                </textPath>
+            </text>
+        </svg>
+    </a>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
@@ -1914,6 +2181,15 @@ MEDIA QUERIES FOR RESPONSIVENESS
             const modalYes = document.getElementById('modal-yes');
             const modalNo = document.getElementById('modal-no');
 
+            // NEW Video Modal Elements
+            const playVideoButton = document.getElementById('play-video-btn');
+            const videoModal = document.getElementById('video-modal');
+            const closeVideoModal = document.getElementById('close-video-modal');
+            const portfolioVideo = document.getElementById('portfolio-video');
+
+            // NEW Scroll to Top Element
+            const scrollToTopBtn = document.getElementById('scroll-to-top');
+
             // Preloader & Animation Elements
             const preloader = document.getElementById('preloader');
             const heroSection = document.getElementById('hero');
@@ -1937,12 +2213,6 @@ MEDIA QUERIES FOR RESPONSIVENESS
             // --- EmailJS Initialization ---
             emailjs.init("2OWE406RYsMxtRGsV"); // Public Key
 
-
-            // --- Skills Section Logic (Static List View) ---
-            function setupSkillsDisplay() {
-                // This function is now empty as the CSS media query handles the display toggle
-            }
-
             // --- 3D Project Slider Logic ---
             function setup3DSlider() {
                 const carousel = document.querySelector('.carousel');
@@ -1954,7 +2224,7 @@ MEDIA QUERIES FOR RESPONSIVENESS
                 const cardWidth = cards[0].offsetWidth;
                 const angle = 360 / cardCount;
                 const radius = Math.round((cardWidth / 2) / Math.tan(Math.PI / cardCount));
-                const adjustedRadius = radius * 1.15;
+                const adjustedRadius = radius * 1.2; // FIX: Adjusted radius for better visibility
 
                 cards.forEach((card, i) => {
                     const rotateY = i * angle;
@@ -1972,13 +2242,13 @@ MEDIA QUERIES FOR RESPONSIVENESS
                 mobileNavOverlay.classList.add('visible');
                 mainContent.classList.add('content-blur');
                 bottomNav.classList.add('content-blur');
-                body.style.overflow = 'hidden'; // Disable body scroll
+                body.style.overflow = 'hidden';
             };
             const closeMenu = () => {
                 mobileNavOverlay.classList.remove('visible');
                 mainContent.classList.remove('content-blur');
                 bottomNav.classList.remove('content-blur');
-                body.style.overflow = 'auto'; // Enable body scroll
+                body.style.overflow = 'auto';
             };
 
             hamburgerBtn.addEventListener('click', openMenu);
@@ -1989,28 +2259,16 @@ MEDIA QUERIES FOR RESPONSIVENESS
                 });
             });
 
-
             // --- Theme Toggling & Modal Logic ---
             const applyTheme = (theme) => {
                 htmlElement.setAttribute('data-theme', theme);
                 const isDark = theme === 'dark';
-
                 darkIcons.forEach(i => i.style.display = isDark ? 'block' : 'none');
                 lightIcons.forEach(i => i.style.display = isDark ? 'none' : 'block');
-
-                const sections = ['hero', 'experience', 'skills', 'projects', 'education', 'certifications', 'contact'];
-                sections.forEach(sectionId => {
-                    const darkVideo = document.getElementById(`${sectionId}-video-dark`);
-                    const lightVideo = document.getElementById(`${sectionId}-video-light`);
-
-                    if (darkVideo) darkVideo.style.display = isDark ? 'block' : 'none';
-                    if (lightVideo) lightVideo.style.display = isDark ? 'none' : 'block';
-                });
-
                 localStorage.setItem('theme', theme);
             };
             
-            const savedTheme = localStorage.getItem('theme') || 'light'; // Changed to 'light'
+            const savedTheme = localStorage.getItem('theme') || 'light';
             applyTheme(savedTheme);
             setup3DSlider();
 
@@ -2047,6 +2305,23 @@ MEDIA QUERIES FOR RESPONSIVENESS
             modalNo.addEventListener('click', () => {
                 hideModal();
             });
+
+            // --- NEW: Video Modal Logic ---
+            playVideoButton.addEventListener('click', () => {
+                videoModal.classList.add('visible');
+                portfolioVideo.play();
+            });
+            const closeVideo = () => {
+                videoModal.classList.remove('visible');
+                portfolioVideo.pause();
+                portfolioVideo.currentTime = 0;
+            };
+            closeVideoModal.addEventListener('click', closeVideo);
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    closeVideo();
+                }
+            });
             
             // --- Smooth Scrolling & Active Nav Link on Scroll ---
             const sections = document.querySelectorAll('main > section[id]');
@@ -2055,6 +2330,13 @@ MEDIA QUERIES FOR RESPONSIVENESS
                 const scrollPos = window.pageYOffset;
                 const dimension = window.innerHeight;
                 
+                // NEW: Scroll to top button visibility
+                if (scrollPos > dimension / 2) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+
                 let current = 'hero';
                 sections.forEach(section => {
                     const offset = section.offsetTop;
@@ -2076,23 +2358,9 @@ MEDIA QUERIES FOR RESPONSIVENESS
             document.querySelectorAll('a[href^="#"]').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        if(link.classList.contains('nav-link')) {
-                            sectionTitle.textContent = link.textContent;
-                            sectionTitle.classList.add('show');
-                            setTimeout(() => {
-                                sectionTitle.classList.remove('show');
-                            }, 1500);
-                        }
-
-                        const options = {
-                            behavior: 'smooth'
-                        };
-                        options.top = targetSection.offsetTop;
-                        window.scrollTo(options);
-                    }
+                    document.querySelector(link.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
 
@@ -2100,20 +2368,15 @@ MEDIA QUERIES FOR RESPONSIVENESS
             if (contactForm) {
                 contactForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
-                    
                     if (sendButton.classList.contains('sending') || sendButton.classList.contains('sent')) return;
-
                     sendButton.classList.add('sending');
                     sendButton.disabled = true;
                     buttonText.textContent = 'Sending...';
-
                     try {
                         await emailjs.sendForm('service_jfdmiis', 'template_daoqn2a', this);
-                        
                         sendButton.classList.remove('sending');
                         sendButton.classList.add('sent');
                         buttonText.textContent = 'Sent!';
-
                         setTimeout(() => {
                             sendButton.classList.remove('sent');
                             sendButton.disabled = false;
@@ -2139,14 +2402,13 @@ MEDIA QUERIES FOR RESPONSIVENESS
                     el.addEventListener('mouseenter', () => customCursor.classList.add('hover'));
                     el.addEventListener('mouseleave', () => customCursor.classList.remove('hover'));
                 });
-
                 window.addEventListener('mousemove', (event) => {
                     customCursor.style.left = event.clientX + 'px';
                     customCursor.style.top = event.clientY + 'px';
                 });
             }
 
-            // --- Event Listener for Slider & Skills ---
+            // --- Event Listener for Slider ---
             window.addEventListener('resize', () => {
                 setup3DSlider();
             });
@@ -2164,3 +2426,4 @@ MEDIA QUERIES FOR RESPONSIVENESS
     </script>
 </body>
 </html>
+
